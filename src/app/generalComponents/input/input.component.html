@@ -1,0 +1,11 @@
+<!-- <label [for]="name">
+  {{label}}
+</label>
+<input [id]="name" [name]="name" [type]="type" (change)="onChange($event)" [ngClass]="klass"> -->
+
+
+<mat-form-field class="input_container" appearance="fill">
+  <mat-label> {{label}}</mat-label>
+  <input matInput placeholder="type here..." [name]="name" [value]="value" [required]="required" (change)="onChange($event)" >
+  <mat-hint class="typeError" *ngIf="typeError">{{typeError}}</mat-hint>
+</mat-form-field>

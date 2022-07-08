@@ -1,0 +1,29 @@
+.main_container {
+  height: 100%;
+  width: 100%;
+}
+
+.logo_container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  /* background-color: yellowgreen; */
+  height: 15%;
+  width: 100%;
+}
+
+.button_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 1rem;
+  width: 100%;
+  padding-left: .15rem;
+}
+
+.buttons {
+  margin-top: .4rem;
+  width: 100%;
+}

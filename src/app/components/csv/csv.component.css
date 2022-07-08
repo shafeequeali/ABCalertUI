@@ -1,0 +1,84 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+  /* background-color: lightseagreen; */
+
+}
+
+.checkbox_main {
+
+  /* background-color: rgb(129, 214, 210); */
+  margin-bottom: 1rem;
+
+}
+
+.checkbox_main {
+  margin: 1rem;
+}
+
+.checkbox_secondpart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button_div {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  /* background-color: yellow; */
+}
+
+.button_div button {
+  padding: .4rem 1.5rem;
+  border: none;
+  border-radius: .3rem;
+  background-color: rgb(107, 107, 220);
+  color: white;
+  margin-top: 1rem;
+}
+
+
+/* new projects class */
+
+.input_container {
+ 
+}
+
+.input_sub_container {
+  width: 50%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.radio_button_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.priview_button_container {
+  position: relative;
+}
+.create_button_container{
+  position: relative;
+}
+.button_label {
+  width: 10rem;
+  position: absolute;
+  font-size: .7rem;
+  color: rgba(251, 0, 0, 0.462);
+}
+
+.preview_input_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,0 +1,12 @@
+<div>
+  <div class="setflex_horizondel create_session_container " *ngIf="!isItEditSession">
+    <app-button label="Create" (click)="onClickCreate()"></app-button>
+    <app-button label="priview" (click)="onClickPreview()"></app-button>
+  </div>
+  <div class="setflex_horizondel update_session_container" *ngIf="isItEditSession">
+    <app-button label="Update" (click)="onClickUpdate()"></app-button>
+    <app-button label="priview" (click)="onClickPreview()"></app-button>
+    <app-button label="Delete" klass="form_edit_session_delete_button" (click)="onClickDelete()"></app-button>
+  </div>
+
+</div>

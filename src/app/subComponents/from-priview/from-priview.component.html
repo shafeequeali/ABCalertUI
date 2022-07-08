@@ -1,0 +1,31 @@
+<!-- <div [ngSwitch]="setPreview">
+  <div *ngSwitchCase="'show_preview'">
+    <div class="content_container">
+      <div class="alert_name">{{data?.['alert_name']}}</div>
+      <h3>Dear {{data?.['name']}}, Please verify your Roll number and Email id</h3>
+      <h3> Roll no:{{data?.['roll_number']}}</h3>
+      <h3>Email id: {{data?.['email_id']}}</h3>
+    </div>
+  </div>
+  <div *ngSwitchCase="'close_preview'" [ngIf]="!isPreviewReady">
+    <div class="empty_preview">
+      <app-button label="Preview" (click)="onClickPreview()"></app-button>
+    </div>
+  </div>
+</div> -->
+
+<div>
+  <div *ngIf="setPreview">
+    <div class="content_container">
+      <div class="alert_name">{{data?.['alert_name']}}</div>
+      <h3>Dear {{data?.['name']}}, Please verify your Roll number and Email id</h3>
+      <h3> Roll no:{{data?.['roll_number']}}</h3>
+      <h3>Email id: {{data?.['email_id']}}</h3>
+    </div>
+  </div>
+  <div *ngIf="!setPreview">
+    <div class="empty_preview">
+      <label>No Alert Preview</label>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+div {
+  height: 100%;
+  width: 100%;
+  /* background-color: rgb(150, 114, 71); */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-bottom: .05rem solid lightslategrey;
+}
+
+h1 {
+  /* background-color: lightblue; */
+  margin: 0 1rem;
+}

@@ -1,0 +1,20 @@
+.sideBarButton {
+  width: 97%;
+  /* width: 30vh; */
+}
+
+.cardButton {
+  width: 5rem;
+}
+
+.cardButton_edit {
+  background-color: rgb(109, 167, 109);
+}
+
+.cardButton_delete {
+  background-color: rgb(178, 50, 50);
+}
+
+.form_edit_session_delete_button {
+  background-color: rgb(178, 50, 50);
+}

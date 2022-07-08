@@ -1,0 +1,32 @@
+.main_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* background-color: lightpink; */
+  width: 70%;
+}
+
+.inputFieldContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+/* .submitButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 18rem;
+  padding-left: .31rem;
+} */
+.preview_Container{
+  position: relative;
+}
+.preview_label{
+  position: absolute;
+  width: 10rem;
+  color: rgb(195, 10, 10);
+  font-size: .7rem;
+  margin-left: .5rem;
+}

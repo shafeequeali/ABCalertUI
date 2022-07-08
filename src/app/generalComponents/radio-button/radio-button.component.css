@@ -1,0 +1,16 @@
+.size {
+  height: 2rem;
+}
+
+.radio_container {
+  /* background-color: brown; */
+}
+
+.radio_button {}
+
+.radio_button_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column;
+}

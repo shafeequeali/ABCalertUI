@@ -1,0 +1,4 @@
+  <div *ngFor="let s of structure;index as i" class="card_container">
+    <app-processed-card [data]="s" [index]="i" (deleteTrigger)="onClickDelete($event)"></app-processed-card>
+    <!-- <app-cards [data]="s" [index]="i"></app-cards> -->
+  </div>

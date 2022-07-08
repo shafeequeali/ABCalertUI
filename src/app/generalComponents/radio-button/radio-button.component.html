@@ -1,0 +1,21 @@
+<!-- <mat-radio-group aria-label="Select an option" class="radio_container size" *ngFor="let v of values ; index as i">
+  <mat-radio-button [value]="v.value" class="radio_button size" (change)="onChange($event)" class="example-margin">
+    {{v.label}}</mat-radio-button>
+</mat-radio-group> -->
+
+<!-- <mat-radio-group aria-label="Select an option" class="radio_container size" *ngFor="let v of values ; index as i">
+  <mat-radio-button [value]="v" class="radio_button size" (change)="onChange($event)" class="example-margin">
+    D</mat-radio-button>
+</mat-radio-group> -->
+
+
+<mat-radio-group aria-label="Select an option" [value]="checkedValue" class="radio_container size">
+  <div class="radio_button_container">
+    <mat-radio-button value="csv_data" class="radio_button size" (change)="onChange($event)" class="example-margin">Use
+      CSV data
+    </mat-radio-button>
+    <mat-radio-button value="type_data" class="radio_button size" (change)="onChange($event)" class="example-margin">
+      Type Data</mat-radio-button>
+  </div>
+
+</mat-radio-group>

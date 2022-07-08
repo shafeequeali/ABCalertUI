@@ -1,0 +1,5 @@
+<!-- <p>input-hml works!</p> -->
+<label *ngIf="label" [for]="name">
+  {{label}}
+</label>
+<input [id]="name" [name]="name" [type]="type" (change)="onChange($event)" [ngClass]="klass">

@@ -1,0 +1,13 @@
+<div class="main_container">
+  <div class="logo_container">
+    <app-logo></app-logo>
+  </div>
+  <div class="button_container">
+    <app-button label="View Alerts" (click)="onClickButton('')" klass="sideBarButton" class="buttons">
+    </app-button>
+    <app-button label="Create Alerts" (click)="onClickButton('/create_alerts')" klass="sideBarButton" class="buttons">
+    </app-button>
+    <app-button label="Processed Alerts" (click)="onClickButton('/processed_alerts')" klass="sideBarButton"
+      class="buttons"></app-button>
+  </div>
+</div>

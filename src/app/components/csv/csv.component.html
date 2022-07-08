@@ -1,0 +1,64 @@
+<div>
+  <div class="container" *ngIf="!isFormForEditing">
+    <div>
+      <label for="csv_file">
+        Choose CSV file
+      </label>
+      <input name="csv_file" label="Choose CSV file" type="file" (change)="onChangeCsv($event)">
+    </div>
+
+  </div>
+  <div *ngIf="isFormForEditing">
+    <h2>{{'File Uploaded : '+ fileName}} </h2>
+  </div>
+  <div [ngSwitch]="csvEvalutionStatus">
+    <div class="checkbox_main" *ngSwitchCase="'completed'">
+      <div class="preview_input_container">
+        <div>
+          <h3>Please set field correspondent to the csv uploaded.</h3>
+          <div class="input_container">
+            <div class="input_sub_container" *ngFor="let s of struture ; index as i">
+              <div class="radio_button_container">
+                <app-radio-button name="csv_data" [index]="i" [checkedValue]="s.checkedValue"
+                  label="Use Data in CSV file" [checked]="s.checked" (setValue)="setRadioButtonData($event)"
+                  defaultValue="csv_data">
+                </app-radio-button>
+              </div>
+              <div [ngSwitch]="s.checkedValue">
+                <app-select *ngSwitchCase="'csv_data'" [svgHeaders]="csvHeaders" [label]="s.label" [name]="s.name"
+                  [required]="s.required" [value]="bindData[s.name].value" (setValue)="setInputData($event)"
+                  [typeError]="formErrorHandler[s.name]">
+                </app-select>
+                <app-input *ngSwitchCase="'type_data'" [label]="s.label" [name]="s.name" [required]="s.required"
+                  (setValue)="setInputData($event)" [value]="bindData[s.name].value"
+                  [typeError]="formErrorHandler[s.name]">
+                </app-input>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <app-from-priview [setPreview]="setPreview" [data]="sampleFormData"></app-from-priview>
+        </div>
+      </div>
+
+      <div class="button_div">
+        <!-- <button (click)="onClickSubmit()">Submit</button>
+        <div class="priview_button_container">
+          <button (click)="onClickCreatePreview()">Preview</button>
+          <br />
+          <label class="button_label" *ngIf="isClickedPriview">{{labelMessage}}</label>
+        </div> -->
+        <app-form-foot-buttons [isItEditSession]="isFormForEditing" (setCreate)="onClickSubmit()"
+          (setUpdate)="onClickUpdate()" (setPreview)="onClickCreatePreview()" (setDelete)="onClickDelete()">
+        </app-form-foot-buttons>
+        <div>
+          <label class="button_label" *ngIf="isClickedPriview">{{labelMessage}}</label>
+        </div>
+
+      </div>
+    </div>
+    <h1 *ngSwitchCase="'not_selected'">No CSV file choosed</h1>
+    <h1 *ngSwitchCase="'error'"> Error occured while CSV file reading, please add another one </h1>
+  </div>
+</div>

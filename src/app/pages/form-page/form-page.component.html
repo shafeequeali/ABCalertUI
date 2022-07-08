@@ -1,0 +1,15 @@
+<div class="main_container">
+  <div class="Back_button_container">
+    <app-button label="Back" (click)="onClickBack()"></app-button>
+  </div>
+  <div [ngSwitch]="alertService.data_source">
+    <div *ngSwitchCase="'STATIC'">
+      <app-form [alertData]="alertService?.alertData" [isAlertDataAvailable]="alertService?.isAlertDataAvailable">
+      </app-form>
+    </div>
+    <div *ngSwitchCase="'DYNAMIC'">
+      <app-csv [alertData]="alertService?.alertData"></app-csv>
+    </div>
+
+  </div>
+</div>

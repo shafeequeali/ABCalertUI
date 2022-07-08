@@ -1,0 +1,26 @@
+<div class="main_container">
+  <div>
+    <div class="inputFieldContainer" *ngFor="let s of struture ; index as i">
+      <app-input [name]="s.name" [label]="s.label" [value]="formData[s.name]" (setValue)="setInputData($event)"
+        [required]="s.required" [typeError]="formErrorHandler[s.name]">
+      </app-input>
+    </div>
+    <div class="submitButton">
+      <!-- <app-button label="Create" (click)="onClickCreate()"></app-button>
+      <div class="preview_Container">
+        <app-button label="Preview" (click)="onClickPreview()"></app-button>
+        <label class="preview_label" *ngIf="!setPreview && isPreviewClicked">Please fill all the field</label>
+      </div>
+      <button (click)="uploadFormDataToService()">submit</button> -->
+      <app-form-foot-buttons [isItEditSession]="isAlertDataAvailable" (setCreate)="onClickCreate()"
+        (setUpdate)="onClickUpdate()" (setPreview)="onClickPreview()" (setDelete)="onClickDelete()">
+      </app-form-foot-buttons>
+      <div>
+      <label class="preview_label" *ngIf="!setPreview && isPreviewClicked">Please fill all the field</label>
+      </div>
+    </div>
+  </div>
+  <div>
+    <app-from-priview [data]="previewData" [setPreview]="setPreview"></app-from-priview>
+  </div>
+</div>

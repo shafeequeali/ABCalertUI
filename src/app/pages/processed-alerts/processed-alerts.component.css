@@ -1,0 +1,47 @@
+.main_container {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  /* background-color: rgb(205, 152, 152); */
+  height: 100%;
+  /* padding: .3rem 1rem 0 1rem; */
+  /* width: 100%; */
+}
+
+.padding {
+  padding: 1rem;
+}
+
+
+
+.header_container {
+  /* background-color: yellowgreen; */
+  /* border-bottom: .01rem solid gray; */
+  height: 5%;
+}
+
+.content_container {
+  height: 89%;
+  /* background-color: rgb(106, 133, 44); */
+  /* width: 100%; */
+  display: flex;
+  /* justify-content: center; */
+  overflow: scroll;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+
+}
+
+.footer_container {
+  border-top: .01rem solid gray;
+  height: 1%;
+}
+
+.card_container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}

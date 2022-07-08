@@ -1,0 +1,13 @@
+<div class="main_container">
+  <div class="button_container" *ngIf="alertsService.isNotFormTypeChoosed">
+    <app-button label="Create alerts by entering form" (click)="onclickChooseButton('type_data')"></app-button>
+    <app-button label="Create alerts by upload CSV file" (click)="onclickChooseButton('csv_data')"></app-button>
+  </div>
+  <div class="form_container" *ngIf="!alertsService.isNotFormTypeChoosed">
+    <app-button class="backButton" label="Back" (click)="onclickBackButton()"></app-button>
+    <div class="from_switch_container" [ngSwitch]="alertsService.createAlertType">
+      <app-form *ngSwitchCase="'type_data'"></app-form>
+      <app-csv *ngSwitchCase="'csv_data'"></app-csv>
+    </div>
+  </div>
+</div>

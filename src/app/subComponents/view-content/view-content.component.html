@@ -1,0 +1,7 @@
+<div class="main_container">
+  <div *ngFor="let s of structure;index as i">
+    <app-cards [data]="s" [index]="i" (sendTrigger)="onClickSend($event)" (editTrigger)="onClickEdit($event)"
+      (deleteTrigger)="onClickDelete($event)">
+    </app-cards>
+  </div>
+</div>
