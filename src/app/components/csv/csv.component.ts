@@ -29,7 +29,7 @@ export class CsvComponent implements OnInit {
   public fileName: string | undefined;
   private csvResult: any = []
   public csvHeaders: any = [];
-  private csvSample: any = [];
+  public csvSample: any = [];
   public isFormForEditing: boolean = false;
   // not_selected completed error
   public csvEvalutionStatus: any = 'not_selected';
@@ -104,7 +104,7 @@ export class CsvComponent implements OnInit {
     }
     // console.log({ tag: this.TAG + ' ngOnInit', alertDataBindData: JSON.parse(this.alertData.binding_data) });
     // console.log({ tag: this.TAG + ' ngOnInit', bindData: this.bindData, struture: this.struture });
-    // console.log({ tag: this.TAG + ' ngOnInit', csvHeaders: this.csvHeaders, alertData: this.alertData });
+    // console.log({ tag: this.TAG + ' ngOnInit', csvSample: this.csvSample });
 
   }
 
@@ -147,7 +147,7 @@ export class CsvComponent implements OnInit {
 
   async onChangeCsv(e: any) {
     this.file = e.target.files[0];
-    console.log({ tag: 'csv_componet', file: this.file });
+    // console.log({ tag: 'csv_componet', file: this.file });
     this.uploadService.uploadFileBodyLess(this.file).subscribe((data) => {
       let sample = data ? data.sample_data ? data.sample_data : {} : {};
       for (const key in sample) {
@@ -159,6 +159,7 @@ export class CsvComponent implements OnInit {
       this.fileName = data.file_name
       console.log({ tag: this.TAG + " onChangeCsv", fileUrl: this.fileUrl, fileName: this.fileName, });
     })
+
   }
 
   onClickSubmit() {
@@ -208,6 +209,7 @@ export class CsvComponent implements OnInit {
         window.alert("validation has been failed on sample csv file  , please check your csv file uploaded")
       }
     }
+    console.log({ tag: this.TAG + ' onClickCreatePreview', csvSample: this.csvSample });
 
     // console.log({
     //   tag: this.TAG + " onClickCreatePreview",
@@ -249,7 +251,7 @@ export class CsvComponent implements OnInit {
     this.labelMessage = ''
   }
   onClickDelete() {
-    console.log({ tag: this.TAG + ' onClickDelete' });
+    console.log({ tag: this.TAG + ' onClickDelete', });
     this.uploadService.uploadData(null,
       `http://localhost:3000/alert/${this.alertData._id}?csv_file=${this.fileUrl}`,
       'delete',

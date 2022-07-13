@@ -10,6 +10,9 @@ export class InputComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    if (this.name === 'phone_number') {
+      this.isphoneNumber = true
+    }
   }
 
   @Input() klass: string = '';
@@ -18,9 +21,11 @@ export class InputComponent implements OnInit {
   @Input() value: any;
   @Input() type: any;
   @Input() required?: any;
-  @Input() typeError ?: string = ''
+  @Input() typeError?: string = ''
 
-  
+  note: string = 'Note:Country code is must';
+
+  isphoneNumber: boolean = false;
   // @Input() index: any;
   @Output() setValue = new EventEmitter();
 

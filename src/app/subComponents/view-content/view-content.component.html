@@ -1,4 +1,7 @@
 <div class="main_container">
+  <div class="refreshButtonContainer">
+    <app-button label="Refresh" (click)="onClickRefresh()"></app-button>
+  </div>
   <div *ngFor="let s of structure;index as i">
     <app-cards [data]="s" [index]="i" (sendTrigger)="onClickSend($event)" (editTrigger)="onClickEdit($event)"
       (deleteTrigger)="onClickDelete($event)">

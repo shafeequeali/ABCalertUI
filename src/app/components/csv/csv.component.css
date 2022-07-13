@@ -46,9 +46,7 @@
 
 /* new projects class */
 
-.input_container {
- 
-}
+.input_container {}
 
 .input_sub_container {
   width: 50%;
@@ -67,9 +65,11 @@
 .priview_button_container {
   position: relative;
 }
-.create_button_container{
+
+.create_button_container {
   position: relative;
 }
+
 .button_label {
   width: 10rem;
   position: absolute;
@@ -77,8 +77,31 @@
   color: rgba(251, 0, 0, 0.462);
 }
 
-.preview_input_container{
+.preview_input_container {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.csv_sample {
+  min-width: 100%;
+  height: 10rem;
+  background-color: rgba(241, 241, 241, 0.534);
+  margin-bottom: .41rem;
+  overflow: scroll;
+  padding-left: .2rem;
+}
+
+.box_shadow {
+  -moz-box-shadow: 3px 3px 5px 6px #ccc;
+  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+  box-shadow: 3px 3px 5px 6px #ccc;
+}
+
+.inner_shadow {
+  /* border: 1px solid; */
+  box-shadow: 2px 2px 2px rgba(118, 118, 118, 0.459) inset;
+}
+.first_line{
+  font-weight: bolder;
 }

@@ -38,6 +38,12 @@
           </div>
         </div>
         <div>
+          <span class="first_line" >The first line of csv file:</span>
+          <div class="csv_sample inner_shadow">
+            <div *ngFor="let h of csvHeaders ;index as i">
+              <span>{{h + ' : ' + csvSample[h]}}</span>
+            </div>
+          </div>
           <app-from-priview [setPreview]="setPreview" [data]="sampleFormData"></app-from-priview>
         </div>
       </div>

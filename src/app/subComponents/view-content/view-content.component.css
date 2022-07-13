@@ -1,8 +1,16 @@
 .main_container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    /* background-color: blueviolet; */
-    
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  /* background-color: blueviolet; */
+
+}
+
+.refreshButtonContainer {
+  position: fixed;
+  z-index: 500;
+  top: 8rem;
+  left: 20rem;
 }

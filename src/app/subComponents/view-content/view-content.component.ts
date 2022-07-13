@@ -85,6 +85,7 @@ export class ViewContentComponent implements OnInit {
     } else if (data.data_source === "STATIC") {
       this.uploadService.uploadData({},
         `http://localhost:3000/alert/sendAlert/${data ? data['_id'] : ''}`, 'send', callback)
+      this.loadAlertData()
     }
 
 
@@ -98,6 +99,10 @@ export class ViewContentComponent implements OnInit {
     this.uploadService.uploadData(null,
       `http://localhost:3000/alert/${data ? data['_id'] : ''}?csv_file=${data.csv_file}`, 'delete', callback)
     console.log({ tag: this.TAG + ' onClickDelete', data });
+  }
+
+  onClickRefresh() {
+    this.loadAlertData()
   }
 
   loadAlertData() {

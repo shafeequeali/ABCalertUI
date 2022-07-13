@@ -1,7 +1,11 @@
 .input_container {
-    /* background-color: blue; */
-    width: 10rem;
-    height: 4rem;
-    margin: .4rem;
-    /* background-color:red ; */
+  /* background-color: blue; */
+  width: 10rem;
+  height: 4rem;
+  margin: .4rem;
+  /* background-color:red ; */
+}
+
+.span {
+  font-size: .6rem;
 }

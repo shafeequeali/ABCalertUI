@@ -6,6 +6,9 @@
 
 <mat-form-field class="input_container" appearance="fill">
   <mat-label> {{label}}</mat-label>
-  <input matInput placeholder="type here..." [name]="name" [value]="value" [required]="required" (change)="onChange($event)" >
+  <input matInput placeholder="type here..." [name]="name" [value]="value" [required]="required"
+    (change)="onChange($event)">
+  <mat-hint class="span" *ngIf="isphoneNumber">{{note}}</mat-hint>
+  <br>
   <mat-hint class="typeError" *ngIf="typeError">{{typeError}}</mat-hint>
 </mat-form-field>
