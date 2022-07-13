@@ -13,8 +13,15 @@
 
   </div>
   <div class="button_container">
-    <app-button label="Edit" klass="cardButton cardButton_edit" (click)="onClickEdit()"></app-button>
-    <app-button label="Send" klass="cardButton" (click)="onClickSend()"></app-button>
-    <app-button label="Delete" klass="cardButton cardButton_delete" (click)="onClickDelete()"></app-button>
+    <app-button label="Edit" klass="cardButton cardButton_edit" [disable]="buttonDisabled" (click)="onClickEdit()">
+    </app-button>
+    <app-button label="Send" klass="cardButton" [disable]="buttonDisabled" (click)="onClickSend()"></app-button>
+    <app-button label="Delete" klass="cardButton cardButton_delete" [disable]="buttonDisabled"
+      (click)="onClickDelete()"></app-button>
+  </div>
+  <div class="processing_container" *ngIf="buttonDisabled">
+    <h1 class="processing">
+      Processing...
+    </h1>
   </div>
 </mat-card>

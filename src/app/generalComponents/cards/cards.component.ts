@@ -16,6 +16,7 @@ export class CardsComponent implements OnInit {
   @Output() deleteTrigger = new EventEmitter();
   @Output() sendTrigger = new EventEmitter();
 
+  buttonDisabled: boolean = false;
   // data1 = {
   //   name: 'shafeeeque ali',
   //   roll_number: '1234KK',
@@ -24,6 +25,13 @@ export class CardsComponent implements OnInit {
 
 
   ngOnInit(): void {
+    console.log({ tag: this.TAG + ' ngOnInit', data: this.data });
+    let alert_status = this.data ? this.data.alert_status ? this.data.alert_status : '' : ''
+    if (alert_status == 'PROCESSING') {
+      this.buttonDisabled = true
+    } else {
+      this.buttonDisabled = false
+    }
   }
 
   onClickEdit() {

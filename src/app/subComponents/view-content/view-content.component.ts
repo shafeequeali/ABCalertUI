@@ -50,6 +50,9 @@ export class ViewContentComponent implements OnInit {
   structure: Array<StrureElement> | undefined;
   ngOnInit(): void {
     this.loadAlertData()
+    // setInterval(this.loadAlertData, 4 * 1000)
+    // setInterval(this.refreshData, 4 * 1000)
+
   }
 
 
@@ -63,8 +66,28 @@ export class ViewContentComponent implements OnInit {
       window.alert('Alert send successfully')
       this.loadAlertData()
     }
-    this.uploadService.uploadData({},
-      `http://localhost:3000/alert/sendAlert/${data ? data['_id'] : ''}`, 'send', callback)
+
+    let testFuc = () => {
+      console.log(';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;sds;;;;;;;;;;;;;;;;;;;');
+
+    }
+    console.log({ tag: this.TAG + 'onClickSend', data });
+
+    if (data.data_source === "DYNAMIC") {
+      let callbackDy = () => {
+        this.loadAlertData()
+      }
+      this.uploadService.uploadData({},
+        `http://localhost:3000/alert/sendAlert_csv/${data ? data['_id'] : ''}`, 'send', callbackDy)
+      // this.loadAlertData()
+      // setTimeout(this.refreshData, 2 * 1000)
+      // setInterval(this.loadAlertData, 2 * 1000)
+    } else if (data.data_source === "STATIC") {
+      this.uploadService.uploadData({},
+        `http://localhost:3000/alert/sendAlert/${data ? data['_id'] : ''}`, 'send', callback)
+    }
+
+
   }
 
   onClickDelete(data: any) {
@@ -109,6 +132,10 @@ export class ViewContentComponent implements OnInit {
         console.log({ tag: this.TAG + ' subscribe--107', structure: this.structure, });
       })
 
+  }
+
+  refreshData(triger: any) {
+    triger();
   }
 
 }

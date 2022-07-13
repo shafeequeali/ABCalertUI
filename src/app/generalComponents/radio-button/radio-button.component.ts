@@ -16,16 +16,19 @@ export class RadioButtonComponent implements OnInit {
   @Input() checkedValue: string | undefined; // (type_data,csv_data). The values exact what have to name atribue of ckeck box
   @Output() setValue = new EventEmitter();
   @Input() checked: boolean | undefined = true;
-  @Input() defaultValue:any;
-  
+  @Input() defaultValue: any;
+
+  isPhNumber: boolean = false
 
   ngOnInit(): void {
-
+    if (this.index == 2) {
+      this.isPhNumber = true
+    }
   }
 
   onChange(e: any) {
     this.setValue.emit({ key: this.name, value: e.value, index: this.index })
-    console.log({ tag: this.TAG + ' onchange', e, checked: this.checked });
+    console.log({ tag: this.TAG + ' onchange', label: this.label, index: this.index, name: this.name });
   }
 
 

@@ -34,10 +34,12 @@ h3 {
   justify-content: space-between;
   align-items: center;
 }
-.form_type{
+
+.form_type {
   /* background-color: lightcoral; */
   font-size: .7rem;
 }
+
 .alert_name {
   font-size: 1rem;
   font-weight: bold;
@@ -65,4 +67,19 @@ h3 {
 .preview {
   color: rgba(86, 8, 95, 0.499);
   margin-bottom: .1rem;
+}
+
+.processing_container {
+  position: relative;
+
+}
+
+.processing {
+  position: absolute;
+  top: -2rem;
+  left: -20rem;
+  z-index: 100;
+  width: 15rem;
+  height: 6rem;
+  background-color: rgba(157, 163, 146, 0.442);
 }

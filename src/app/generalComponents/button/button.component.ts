@@ -12,14 +12,14 @@ export class ButtonComponent implements OnInit {
   constructor() { }
   @Input() label?: string
   @Input() klass?: any = ''
-  // @Input() path?: any = ''
+  @Input() disable?: boolean = false
   // @Output() sendPath?: any = new EventEmitter();
   ngOnInit(): void {
   }
 
   // onClick() {
   //   console.log({tag:this.TAG + ' onClick'});
-    
+
   //   this.sendPath.emit(this.path)
   // }
 

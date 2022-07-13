@@ -14,7 +14,8 @@
     <mat-radio-button value="csv_data" class="radio_button size" (change)="onChange($event)" class="example-margin">Use
       CSV data
     </mat-radio-button>
-    <mat-radio-button value="type_data" class="radio_button size" (change)="onChange($event)" class="example-margin">
+    <mat-radio-button value="type_data" *ngIf="!isPhNumber" class="radio_button size" (change)="onChange($event)"
+      class="example-margin">
       Type Data</mat-radio-button>
   </div>
 
