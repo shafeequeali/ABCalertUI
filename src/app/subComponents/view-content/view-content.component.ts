@@ -6,11 +6,15 @@ import { UploadService } from 'src/app/upload.service';
 @Component({
   selector: 'app-view-content',
   templateUrl: './view-content.component.html',
-  styleUrls: ['./view-content.component.css']
+  styleUrls: ['./view-content.component.css'],
 })
 export class ViewContentComponent implements OnInit {
-  TAG = "ViewContentComponent"
-  constructor(private router: Router, public alertService: AlertsService, private uploadService: UploadService) { }
+  TAG = 'ViewContentComponent';
+  constructor(
+    private router: Router,
+    public alertService: AlertsService,
+    private uploadService: UploadService
+  ) {}
   // structure1: Array<StrureElement> = [
   //   {
   //     name: 'demoName', roll_number: 'AS232', email_id: 'demo@gmail.com',
@@ -49,112 +53,127 @@ export class ViewContentComponent implements OnInit {
   // ]
   structure: Array<StrureElement> | undefined;
   ngOnInit(): void {
-    this.loadAlertData()
+    this.loadAlertData();
     // setInterval(this.loadAlertData, 4 * 1000)
     // setInterval(this.refreshData, 4 * 1000)
-
   }
 
-
   onClickEdit(data: any) {
-    this.alertService.setAlertData(data)
+    this.alertService.setAlertData(data);
     // console.log({ tag: this.TAG + " onClickEdit", serviceAlert: this.alertService.alertData });
-    this.router.navigate(['/form_page'])
+    this.router.navigate(['/form_page']);
   }
   onClickSend(data: any) {
     let callback = (data: any) => {
-      window.alert('Alert send successfully')
-      this.loadAlertData()
-    }
+      window.alert('Alert send successfully');
+      this.loadAlertData();
+    };
 
     let testFuc = () => {
-      console.log(';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;sds;;;;;;;;;;;;;;;;;;;');
-
-    }
+      console.log(
+        ';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;sds;;;;;;;;;;;;;;;;;;;'
+      );
+    };
     console.log({ tag: this.TAG + 'onClickSend', data });
 
-    if (data.data_source === "DYNAMIC") {
+    if (data.data_source === 'DYNAMIC') {
       let callbackDy = () => {
-        this.loadAlertData()
-      }
-      this.uploadService.uploadData({},
-        `http://localhost:3000/alert/sendAlert_csv/${data ? data['_id'] : ''}`, 'send', callbackDy)
+        this.loadAlertData();
+      };
+      this.uploadService.uploadData(
+        {},
+        `http://localhost:3000/alert/sendAlert_csv4/${data ? data['_id'] : ''}`,
+        'send',
+        callbackDy
+      ); 
       // this.loadAlertData()
       // setTimeout(this.refreshData, 2 * 1000)
       // setInterval(this.loadAlertData, 2 * 1000)
-    } else if (data.data_source === "STATIC") {
-      this.uploadService.uploadData({},
-        `http://localhost:3000/alert/sendAlert/${data ? data['_id'] : ''}`, 'send', callback)
-      this.loadAlertData()
+    } else if (data.data_source === 'STATIC') {
+      this.uploadService.uploadData(
+        {},
+        `http://localhost:3000/alert/sendAlert/${data ? data['_id'] : ''}`,
+        'send',
+        callback
+      );
+      this.loadAlertData();
     }
-
-
   }
 
   onClickDelete(data: any) {
     let callback = () => {
-      window.alert('Alert deleted successfully')
-      this.loadAlertData()
-    }
-    this.uploadService.uploadData(null,
-      `http://localhost:3000/alert/${data ? data['_id'] : ''}?csv_file=${data.csv_file}`, 'delete', callback)
+      window.alert('Alert deleted successfully');
+      this.loadAlertData();
+    };
+    this.uploadService.uploadData(
+      null,
+      `http://localhost:3000/alert/${data ? data['_id'] : ''}?csv_file=${
+        data.csv_file
+      }`,
+      'delete',
+      callback
+    );
     console.log({ tag: this.TAG + ' onClickDelete', data });
   }
 
   onClickRefresh() {
-    this.loadAlertData()
+    this.loadAlertData();
   }
 
   loadAlertData() {
-
     let t: any = [];
-    this.uploadService.downLoadData('http://localhost:3000/alert?alert_status=CREATED')
+    this.uploadService
+      .downLoadData('http://localhost:3000/alert?alert_status=CREATED')
       .subscribe((data: any) => {
         console.log({ tag: this.TAG + ' subscribe--85', data });
-        data ? data.data ? data.data.forEach((e: any) => {
-          let tData = {
-            name: e.name ? e.name : '',
-            roll_number: e.roll_number ? e.roll_number : '',
-            email_id: e.email_id ? e.email_id : '',
-            phone_number: e.phone_number ? e.phone_number[0] : '',
-            created_date: e.created_date ? e.created_date : '',
-            modified_date: e.modified_date ? e.modified_date : '',
-            processed_date: e.processed_date ? e.processed_date : '',
-            alert_name: e.alert_name ? e.alert_name : '',
-            alert_status: e.alert_status ? e.alert_status : '',
-            data_source: e.data_source ? e.data_source : '',
-            binding_data: e.binding_data ? e.binding_data : '',
-            csv_file: e.csv_file ? e.csv_file : '',
-            csv_file_name: e.csv_file_name ? e.csv_file_name : '',
-            csv_headers: e.csv_headers ? e.csv_headers : '',
-            csv_sample: e.csv_sample ? e.csv_sample : '',
-            _id: e._id ? e._id : ''
-          }
-          t.push(tData)
-
-        }) : '' : '';
+        data
+          ? data.data
+            ? data.data.forEach((e: any) => {
+                let tData = {
+                  name: e.name ? e.name : '',
+                  roll_number: e.roll_number ? e.roll_number : '',
+                  email_id: e.email_id ? e.email_id : '',
+                  phone_number: e.phone_number ? e.phone_number[0] : '',
+                  created_date: e.created_date ? e.created_date : '',
+                  modified_date: e.modified_date ? e.modified_date : '',
+                  processed_date: e.processed_date ? e.processed_date : '',
+                  alert_name: e.alert_name ? e.alert_name : '',
+                  alert_status: e.alert_status ? e.alert_status : '',
+                  data_source: e.data_source ? e.data_source : '',
+                  binding_data: e.binding_data ? e.binding_data : '',
+                  csv_file: e.csv_file ? e.csv_file : '',
+                  csv_file_name: e.csv_file_name ? e.csv_file_name : '',
+                  csv_headers: e.csv_headers ? e.csv_headers : '',
+                  csv_sample: e.csv_sample ? e.csv_sample : '',
+                  _id: e._id ? e._id : '',
+                };
+                t.push(tData);
+              })
+            : ''
+          : '';
         this.structure = t;
-        console.log({ tag: this.TAG + ' subscribe--107', structure: this.structure, });
-      })
-
+        console.log({
+          tag: this.TAG + ' subscribe--107',
+          structure: this.structure,
+        });
+      });
   }
 
   refreshData(triger: any) {
     triger();
   }
-
 }
 
 export interface StrureElement {
-  name: string,
-  roll_number: string,
-  email_id: string,
-  phone_number: string
-  created_date: any,
-  modified_date: any,
-  processed_date: any,
-  alert_name: string,
-  alert_status: string
-  _id: string
-  data_source?: string
+  name: string;
+  roll_number: string;
+  email_id: string;
+  phone_number: string;
+  created_date: any;
+  modified_date: any;
+  processed_date: any;
+  alert_name: string;
+  alert_status: string;
+  _id: string;
+  data_source?: string;
 }

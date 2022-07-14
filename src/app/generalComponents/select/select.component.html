@@ -5,6 +5,7 @@
       {{d}}
     </mat-option>
   </mat-select>
+  <mat-hint class="note" *ngIf="isPhoneNumber">Not:Country code is must</mat-hint>
   <mat-hint class="typeError" *ngIf="typeError">{{typeError}}</mat-hint>
 </mat-form-field>
 

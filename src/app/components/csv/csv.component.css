@@ -90,6 +90,8 @@
   margin-bottom: .41rem;
   overflow: scroll;
   padding-left: .2rem;
+  scroll-behavior: smooth;
+  scrollbar-width: 1;
 }
 
 .box_shadow {
