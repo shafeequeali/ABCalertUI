@@ -69,11 +69,6 @@ export class ViewContentComponent implements OnInit {
       this.loadAlertData();
     };
 
-    let testFuc = () => {
-      console.log(
-        ';;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;sds;;;;;;;;;;;;;;;;;;;'
-      );
-    };
     console.log({ tag: this.TAG + 'onClickSend', data });
 
     if (data.data_source === 'DYNAMIC') {
@@ -82,10 +77,10 @@ export class ViewContentComponent implements OnInit {
       };
       this.uploadService.uploadData(
         {},
-        `http://localhost:3000/alert/sendAlert_csv4/${data ? data['_id'] : ''}`,
+        `http://localhost:3000/alert/sendAlert_csv7/${data ? data['_id'] : ''}`,
         'send',
         callbackDy
-      ); 
+      );
       // this.loadAlertData()
       // setTimeout(this.refreshData, 2 * 1000)
       // setInterval(this.loadAlertData, 2 * 1000)
