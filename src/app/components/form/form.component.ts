@@ -110,7 +110,7 @@ export class FormComponent implements OnInit, OnChanges {
     const formValidationIsOk: boolean = this.evaluteFormData(this.formData)
     if (formValidationIsOk) {
 
-      this.uploadService.uploadData(this.formData, 'http://localhost:3000/alert/create_by_form')
+      this.uploadService.uploadData(this.formData, 'alert/create_by_form')
 
       console.log({
         tag: "form svg componen-onClickCreate",
@@ -133,7 +133,7 @@ export class FormComponent implements OnInit, OnChanges {
         //   _id: `http://localhost:3000/alert/create_by_form/${this.formData['_id']}`
         // });
         this.uploadService.uploadData(this.formData,
-          `http://localhost:3000/alert/create_by_form/${this.formData['_id']}`, 'put')
+          `alert/create_by_form/${this.formData['_id']}`, 'put')
 
       } else {
 
@@ -155,7 +155,7 @@ export class FormComponent implements OnInit, OnChanges {
   onClickDelete() {
     console.log({ tag: this.TAG + ' onClickDelete' });
     this.uploadService.uploadData(null,
-      `http://localhost:3000/alert/${this.formData['_id']}`,
+      `alert/${this.formData['_id']}`,
       'delete',
       ()=>{this.router.navigate(["/"])}
       )

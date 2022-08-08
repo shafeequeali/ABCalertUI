@@ -176,7 +176,7 @@ export class CsvComponent implements OnInit {
           csv_headers: this.csvHeaders,
           csv_sample: this.csvSample
         }
-        this.uploadService.uploadData(data, 'http://localhost:3000/alert/create_by_csv', 'post')
+        this.uploadService.uploadData(data, 'alert/create_by_csv', 'post')
       } else {
         window.alert("sample validation of csv file has been failed , please check your csv file uploaded")
       }
@@ -233,7 +233,7 @@ export class CsvComponent implements OnInit {
           csv_headers: this.csvHeaders,
           csv_sample: this.csvSample
         }
-        this.uploadService.uploadData(data, `http://localhost:3000/alert/create_by_csv/${this.alertData._id}`, 'put')
+        this.uploadService.uploadData(data, `alert/create_by_csv/${this.alertData._id}`, 'put')
       } else {
         window.alert("sample validation of csv file has been failed , please check your csv file uploaded")
       }
@@ -253,7 +253,7 @@ export class CsvComponent implements OnInit {
   onClickDelete() {
     console.log({ tag: this.TAG + ' onClickDelete', });
     this.uploadService.uploadData(null,
-      `http://localhost:3000/alert/${this.alertData._id}?csv_file=${this.fileUrl}`,
+      `alert/${this.alertData._id}?csv_file=${this.fileUrl}`,
       'delete',
       () => { this.router.navigate(["/"]) }
     )

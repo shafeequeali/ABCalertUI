@@ -6,9 +6,15 @@
     <div class="header_container">
       <app-header-bar></app-header-bar>
     </div>
-    <div class="content_container">
+    <div class="content_container" *ngIf="!uploadService.isLoadingApi">
       <!-- <app-create-alert></app-create-alert> -->
       <router-outlet></router-outlet>
     </div>
   </div>
+  <div class="loader" *ngIf="uploadService.isLoadingApi">
+    <h1>Loading...</h1>
+  </div>
+  <!-- <div class="loader">
+    <h1>Loading...</h1>
+  </div> -->
 </div>

@@ -77,7 +77,7 @@ export class ViewContentComponent implements OnInit {
       };
       this.uploadService.uploadData(
         {},
-        `http://localhost:3000/alert/sendAlert_csv7/${data ? data['_id'] : ''}`,
+        `alert/sendAlert_csv7/${data ? data['_id'] : ''}`,
         'send',
         callbackDy
       );
@@ -87,7 +87,7 @@ export class ViewContentComponent implements OnInit {
     } else if (data.data_source === 'STATIC') {
       this.uploadService.uploadData(
         {},
-        `http://localhost:3000/alert/sendAlert/${data ? data['_id'] : ''}`,
+        `alert/sendAlert/${data ? data['_id'] : ''}`,
         'send',
         callback
       );
@@ -102,7 +102,7 @@ export class ViewContentComponent implements OnInit {
     };
     this.uploadService.uploadData(
       null,
-      `http://localhost:3000/alert/${data ? data['_id'] : ''}?csv_file=${
+      `alert/${data ? data['_id'] : ''}?csv_file=${
         data.csv_file
       }`,
       'delete',
@@ -118,7 +118,7 @@ export class ViewContentComponent implements OnInit {
   loadAlertData() {
     let t: any = [];
     this.uploadService
-      .downLoadData('http://localhost:3000/alert?alert_status=CREATED')
+      .downLoadData('alert?alert_status=CREATED')
       .subscribe((data: any) => {
         console.log({ tag: this.TAG + ' subscribe--85', data });
         data
